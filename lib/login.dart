@@ -30,10 +30,7 @@ class _LoginState extends State<Login> {
             margin: EdgeInsets.only(left: 40, right: 40, bottom: 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                _button(),
-                _button(),
-              ],
+              children: <Widget>[_googleButton(), _nextbutton()],
             ))
       ],
     );
@@ -61,9 +58,31 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget _button() {
+  Widget _googleButton() {
     return Container(
-      child: RaisedButton(),
+        margin: EdgeInsets.all(5),
+        child: OutlineButton(
+            onPressed: () {},
+            child: Container(
+              padding:
+                  EdgeInsets.only(left: 30, right: 30, top: 13, bottom: 14),
+              child: Image.asset("assets/googleButton.png"),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(16)),
+            )));
+  }
+
+  Widget _nextbutton() {
+    return Container(
+      child: RaisedButton(
+        padding: EdgeInsets.only(left: 47, right: 47, top: 17, bottom: 17),
+        color: Color(0xFF01579A),
+        onPressed: () {},
+        child: Text(
+          "NEXT",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
     );
   }
