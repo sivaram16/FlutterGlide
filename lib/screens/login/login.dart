@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glide/screens/home/home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -80,7 +81,10 @@ class _LoginState extends State<Login> {
       child: RaisedButton(
         padding: EdgeInsets.only(left: 47, right: 47, top: 17, bottom: 17),
         color: Color(0xFF01579A),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        },
         child: Text(
           "NEXT",
           style: TextStyle(color: Colors.white),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glide/screens/add_post/add_post.dart';
+import 'package:flutter_glide/screens/home/gql/feed_gql.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 class ForYouComponent extends StatelessWidget {
   @override
@@ -6,8 +9,12 @@ class ForYouComponent extends StatelessWidget {
     final list = [true, false, false, true];
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AddPostScreen()));
+          }),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 6,
@@ -70,6 +77,17 @@ class ForYouComponent extends StatelessWidget {
           Text("How to design user interfaces for Microsoft’s Fluent UI")
         ],
       ),
+    );
+  }
+
+  Widget queryComponent() {
+    return Query(
+      options: QueryOptions(document: getPostsQuery),
+      builder: (result, {refetch}) {
+        if (result.errors == null && result.data != null) {
+          print(result.data);
+        }
+      },
     );
   }
 }
