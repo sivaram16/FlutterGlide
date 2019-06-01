@@ -27,14 +27,14 @@ class _LoginState extends State<Login> {
         _textField("Password"),
         Container(margin: EdgeInsets.only(top: 30)),
         Container(
-          margin: ,
+            margin: EdgeInsets.only(left: 40, right: 40, bottom: 50),
             child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            _button(),
-            _button(),
-          ],
-        ))
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                _button(),
+                _button(),
+              ],
+            ))
       ],
     );
   }
@@ -62,6 +62,9 @@ class _LoginState extends State<Login> {
   }
 
   Widget _button() {
-    return RaisedButton();
+    return Container(
+      child: RaisedButton(),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+    );
   }
 }
