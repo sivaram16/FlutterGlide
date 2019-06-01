@@ -19,6 +19,9 @@ class _LoginState extends State<Login> {
         Container(margin: EdgeInsets.only(top: 30)),
         Padding(
             padding: EdgeInsets.all(20), child: Image.asset('assets/logo.png')),
+        Divider(
+          height: 4,
+        ),
         Expanded(child: Container(), flex: 1),
         _textField("Name"),
         Container(margin: EdgeInsets.only(top: 30)),
